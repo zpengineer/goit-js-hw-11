@@ -1,1 +1,0 @@
-{"version":3,"sources":["service/app.js","index.js"],"names":["options"],"mappings":";;;AAAA,MAAMA,EAAU;;ACChB,aADA,QAAA,oBACA,QAAA","file":"src.ca73c5e9.js","sourceRoot":"../src","sourcesContent":["const options = {\n    \n}","import './css/styles.css';\nimport './service/app.js';\n\n\n\n"]}
