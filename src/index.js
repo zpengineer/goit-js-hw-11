@@ -1,5 +1,5 @@
 import './css/styles.css';
-import './app.js';
+import './service/app.js';
 
 
 
