@@ -1,21 +1,42 @@
+<ul class="card-set">
 {{#each this}}
-<a class="gallery__item" href="{{largeImageURL}}">
-  <div class="photo-card">
-  <img src="{{webformatURL}}" alt="{{tags}}" loading="lazy" />
+<li class="item">
+  <article class="card">
+
+  <div class="card-thumb">
+      <a class="card-thumb__item" href="{{largeImageURL}}">
+        <img src="{{webformatURL}}" alt="{{tags}}" loading="lazy" />
+      </a>
+  </div>
+
   <div class="card-info">
     <p class="info-item">
-      <b>Likes: {{likes}}</b>
+      <span>
+        <img src="../img/fire.png" width="25" height="30" alt="">
+      </span>
+      <b>{{likes}}</b>
     </p>
     <p class="info-item">
-      <b>Views: {{views}}</b>
+      <span>
+        <img src="../img/view.png" width="30" height="30" alt="">
+      </span>
+      <b>{{views}}</b>
     </p>
     <p class="info-item">
-      <b>Comments: {{comments}}</b>
+      <span>
+        <img src="../img/comment.png" width="30" height="30" alt="">
+      </span>
+      <b>{{comments}}</b>
     </p>
     <p class="info-item">
-      <b>Downloads: {{downloads}}</b>
+      <span>
+        <img src="../img/rocket.png" width="30" height="30" alt="">
+      </span>
+      <b>{{downloads}}</b>
     </p>
   </div>
-</div>
-</a>
+
+</article>
+</li>
 {{/each}}
+</ul>

@@ -4,18 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/f078a24b66.js" crossorigin="anonymous"></script>
     <title>Homework 11</title>
   </head>
   <body>
-    
-      <form class="search-form" id="search-form">
-        <input type="text" name="pixabay" autocomplete="off" placeholder="Search images..." />
-        <button type="submit">Search</button>
-      </form>
+    <header class="site-head">
+        <form class="search-form" id="search-form">
+          <input type="text" name="pixabay" autocomplete="off" placeholder="Search images..." />
+          <button type="submit" class="submit-btn"><i class="fas fa-arrow-right"></i></button>
+        </form>
+    </header>
 
-      <div class="gallery"></div>
-
-      <div id="loading"></div>
+    <div class="container">
+        <div class="gallery"></div>
+              <!-- <img src="../src/img/comment.png" width="30" height="30" alt="">
+              <img src="../src/img/fire.png" width="25" height="30" alt="">
+              <img src="../src/img/rocket.png" width="30" height="30" alt="">
+              <img src="../src/img/view.png" width="30" height="30" alt=""> -->
+        <div id="loading"></div>
+    </div>
 
     <script src="index.js"></script>
   </body>

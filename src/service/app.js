@@ -13,9 +13,18 @@ const refs = {
 
 const imageApiService = new ImagesApiService();
 
+let lightboxGallery = new SimpleLightbox('.gallery a', { 
+            captions: true,
+            captionSelector: 'img',
+            captionsData: 'alt',
+            captionPosition: 'bottom',
+            captionDelay: 250,
+});
+
 refs.btnSubmit.addEventListener('click', searchImages);
 
 async function searchImages(e) {
+
     e.preventDefault();
 
     imageApiService.searchQuery = refs.form.pixabay.value;
@@ -36,6 +45,8 @@ async function searchImages(e) {
         const markup = imageCardsTpl(getData.hits);
         galleryMarkUp(markup);
 
+        lightboxGallery.refresh();
+
     }
 
     console.log(getData);
@@ -52,13 +63,26 @@ function clearGalleryContainer() {
   refs.container.innerHTML = '';
 }
 
+function smoothScroll() {
+
+    const { height: cardHeight } = document
+        .querySelector('.gallery')
+        .firstElementChild.getBoundingClientRect();
+
+    window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+    });
+
+}
+
 
 const options = {
     rootMargin: '300px',
 };
 
 const callback = (entries) => {
-    entries.forEach((entry) => {
+    entries.forEach(async(entry) => {
  
         try {
             if (entry.isIntersecting && imageApiService.searchQuery !== '') {
@@ -66,13 +90,13 @@ const callback = (entries) => {
                 console.log('Hello');
 
                 imageApiService.incrementPage();
+
+                const getData = await imageApiService.fetchImages();
+                const markup = imageCardsTpl(getData.hits);
+                galleryMarkUp(markup);
                 
-                imageApiService.fetchImages().then((data) => {
-
-                    const markup = imageCardsTpl(data.hits);
-                    galleryMarkUp(markup);
-
-                });
+                smoothScroll();
+                lightboxGallery.refresh();
  
             }
         } catch {
@@ -87,10 +111,3 @@ const imageObserver = new IntersectionObserver(callback, options);
 imageObserver.observe(refs.loading);
 
 
-const lightboxGallery = new SimpleLightbox('.gallery a', { 
-    captions: true,
-    captionSelector: 'img',
-    captionsData: 'alt',
-    captionPosition: 'bottom',
-    captionDelay: 250,
-});

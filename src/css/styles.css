@@ -7,8 +7,8 @@ body {
     'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #fafafa;
-  color: #212121;
+  background-color: #15202b;
+  /* color: #212121; */
   line-height: 1.5;
 }
 
@@ -18,11 +18,74 @@ ul {
   padding: 0;
 }
 
-img {
-  object-fit: contain;
+/* img {
+  display: block;
+  max-width: 100%;
+} */
+
+.site-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #22303c;
+  height: 80px;
+  margin-bottom: 30px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 80px;
 }
 
-.gallery {
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.search-form {
+  position: relative;
+}
+
+.search-form input {
+  width: 400px;
+  height: 50px;
+  padding: 10px;
+
+  font-size: 21px;
+
+  border: none;
+  outline: none;
+  color: #bfd2ff;
+  background: rgba(57, 63, 84, 0.8);
+  border-radius: 5px;
+}
+
+.search-form input::placeholder {
+  color: #7881a1;
+}
+
+.submit-btn {
+  height: 50px;
+  width: 50px;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+
+  color: #7881a1;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  top: 0;
+}
+
+.submit-btn:hover {
+  color: #bfd2ff;
+}
+
+.card-set {
   display: flex;
   flex-wrap: wrap;
 
@@ -30,7 +93,7 @@ img {
   margin-top: -30px;
 }
 
-.photo-card {
+.item {
   display: flex;
   flex-direction: column;
 
@@ -38,23 +101,34 @@ img {
 
   margin-left: 30px;
   margin-top: 30px;
+}
 
-  width: 300px;
-  height: 250px;
-
-  position: relative;
+.card {
+  border-radius: 10px;
   overflow: hidden;
 }
 
-.card-info {
-  display: inline-flex;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+.card-thumb img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
 
-  background: rgba(47, 48, 58, 0.8);
+.card-info {
+  display: flex;
+  justify-content: space-around;
+
+  background: #22303c;
 }
 
 .info-item {
-  color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0;
+  padding: 10px;
+
+  color: #8899a6;
 }
