@@ -66,11 +66,12 @@ function clearGalleryContainer() {
 function smoothScroll() {
 
     const { height: cardHeight } = document
-        .querySelector('.gallery')
+        .querySelector('.card')
         .firstElementChild.getBoundingClientRect();
 
+    console.log(cardHeight);
     window.scrollBy({
-        top: cardHeight * 2,
+        top: cardHeight * 4,
         behavior: 'smooth',
     });
 
@@ -78,7 +79,7 @@ function smoothScroll() {
 
 
 const options = {
-    rootMargin: '300px',
+    rootMargin: '200px',
 };
 
 const callback = (entries) => {
